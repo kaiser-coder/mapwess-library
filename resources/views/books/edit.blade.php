@@ -5,11 +5,12 @@
 @section('content')
 
 
-<form class="row mb-3" method="post" action="/update/{{ $book->did }}" style="font-size: 13px">
+<form class="row mb-3" method="post" action="/update/{{ $book->id }}" style="font-size: 13px">
     @csrf
     @method('PATCH')
     <div class="offset-1 col-10 card p-0">
         <div class="card-body">
+            <input type="hidden" name="book_id" value="{{ $book->id }}">
             <div class="row">
                 <div class="col-6 form-group">
                     <label for="">Title</label>

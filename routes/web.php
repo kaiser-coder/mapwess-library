@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Books;
+use App\Http\Controllers\Users;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,17 +16,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('users/login');
 });
 
 Route::get('/tests', function () {
     return 'Welcome into the Library';
 });
 
+// Book Routes
 Route::get('/home', [Books::class, 'home']);
 Route::get('/view/{id}', [Books::class, 'view']);
 Route::get('/create', [Books::class, 'create']);
 Route::post('/store', [Books::class, 'store']);
 Route::get('/edit/{id}', [Books::class, 'edit']);
-Route::put('/update/{id}', [Books::class, 'update']);
-Route::delete('/delete/{id}', [Books::class, 'delete']);
+Route::patch('/update/{id}', [Books::class, 'update']);
+Route::get('/delete/{id}', [Books::class, 'delete']);
+
+// User Routes
+Route::get('/login', [Users::class, 'login']);
+Route::get('/logout', [Users::class, 'logout']);
+Route::post('/auth', [Users::class, 'auth']);
+Route::get('/register', [Users::class, 'register']);
+Route::get('/refresh-captcha', [Users::class, 'refreshCaptcha']);
+Route::post('/save', [Users::class, 'save']);
+Route::get('/profile', [Users::class, 'profile']);
+Route::patch('/update-user', [Users::class, 'update']);

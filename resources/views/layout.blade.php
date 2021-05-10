@@ -1,3 +1,7 @@
+<?php
+    if(session('user_id')) {
+;?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +28,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/create">Create Books</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -47,3 +57,9 @@
 
 </body>
 </html>
+
+<?php
+    } else {
+        Redirect::to('/');
+    }
+;?>

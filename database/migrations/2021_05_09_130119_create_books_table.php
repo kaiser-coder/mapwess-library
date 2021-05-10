@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->integer('pages', 5)->autoIncrement(false);
             $table->date('published_at');
             $table->text('description')->nullable();
+            $table->integer('user_id')->autoIncrement(false);
             $table->timestamps();
         });
     }

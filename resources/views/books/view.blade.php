@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-
+                        <img src="{{ $book->img }}" alt="">
                     </div>
                 </div>
             </div>

@@ -30,8 +30,6 @@ class Books extends Controller
             'img'            => 'nullable'
         ]);
 
-        dd($request->all());
-
         Book::create($request->all());
         return redirect('/home');
     }
@@ -52,18 +50,27 @@ class Books extends Controller
             'img'            => 'nullable'
         ]);
 
-        dd($request->all());
 
-        Book::where($request->all())
-        ->update($request->all());
+        $book = Book::where('id', $request->book_id)
+        ->first();
+
+        // dd($book);
+
+        if ($book->user_id == session('user_id')) {
+            Book::where('id', $id)
+                ->update($validatedData);
+        }
 
         return $this->view($id);
     }
 
     public function delete(Int $id)
     {
-        Book::find($id)
-        ->delete();
+        $book = Book::find($id)->first();
+
+        if($book->user_id == session('user_id')) {
+            Book::find($id)->delete();
+        }
 
         return redirect('/home');
     }

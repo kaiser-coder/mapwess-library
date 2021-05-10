@@ -9,9 +9,7 @@
     <div class="offset-1 col-10 card">
         <div class="card-body">
             <div class="row">
-                <div class="col-3">
-                    <img src="" alt="" srcset="">
-                </div>
+                <img src="{{ $book->img }}" alt="" srcset="" class="col-3">
                 <div class="col-9">
                     <h4><a href="/view/{{ $book->id }}">{{ $book->title }}</a></h4>
 

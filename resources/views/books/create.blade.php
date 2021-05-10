@@ -56,6 +56,7 @@
                     <input type="text" name="img" id="" class="form-control form-control-sm">
                 </div>
             </div>
+            <input type="hidden" name="user_id" value="{{ session('user_id') }}">
         </div>
         <div class="card-footer">
             <div class="row">
