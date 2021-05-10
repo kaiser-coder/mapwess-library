@@ -10,15 +10,11 @@ use Illuminate\Support\Facades\DB;
 class Books extends Controller
 {
     public function home() {
-        $books = DB::table('books')
-        ->join('authors', 'books.authors_id', '=', 'authors.id')
-        ->get();
-
-        return view('home', ['books' => $books ]);
+        return view('home', ['books' => Book::all() ]);
     }
 
     public function create() {
-        return view('create', ['authors' => Author::all()]);
+        return view('create');
     }
 
     public function store(Request $request) {
