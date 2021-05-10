@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Models\Author;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class Books extends Controller
 {
@@ -24,23 +22,49 @@ class Books extends Controller
 
     public function store(Request $request) {
         $validatedData =  $request->validate([
-            'title'        => 'required',
-            'author'       => 'required',
-            'published_at' => 'required',
-            'description'  => 'required'
+            'title'          => 'required',
+            'author'         => 'required',
+            'pages'          => 'required|integer',
+            'published_at'   => 'required',
+            'description'    => 'nullable',
+            'img'            => 'nullable'
         ]);
 
-        Book::create($validatedData);
+        dd($request->all());
+
+        Book::create($request->all());
         return redirect('/home');
     }
 
     public function edit($id)
     {
-        dd($id);
+        return view('edit', ['book' => Book::find($id)]);
     }
 
-    public function update()
+    public function update(Request $request, Int $id)
     {
-        # code...
+        $validatedData =  $request->validate([
+            'title'          => 'required',
+            'author'         => 'required',
+            'pages'          => 'required|integer',
+            'published_at'   => 'required',
+            'description'    => 'nullable',
+            'img'            => 'nullable'
+        ]);
+
+        dd($request->all());
+
+        Book::where($request->all())
+        ->update($request->all());
+
+        return $this->view($id);
+    }
+
+    public function delete(Int $id)
+    {
+        Book::find($id)
+        ->delete();
+
+        return redirect('/home');
     }
 }

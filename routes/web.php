@@ -23,7 +23,9 @@ Route::get('/tests', function () {
 });
 
 Route::get('/home', [Books::class, 'home']);
-Route::get('/create', [Books::class, 'create']);
 Route::get('/view/{id}', [Books::class, 'view']);
-Route::get('/edit/{id}', [Books::class, 'edit']);
+Route::get('/create', [Books::class, 'create']);
 Route::post('/store', [Books::class, 'store']);
+Route::get('/edit/{id}', [Books::class, 'edit']);
+Route::put('/update/{id}', [Books::class, 'update']);
+Route::delete('/delete/{id}', [Books::class, 'delete']);

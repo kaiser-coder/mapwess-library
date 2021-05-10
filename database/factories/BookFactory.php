@@ -26,7 +26,6 @@ class BookFactory extends Factory
             'author'         => $this->faker->name(),
             'pages'          => $this->faker->randomNumber(3, true),
             'published_at'   => $this->faker->date(),
-            'remember_token' => $this->faker->randomNumber(5, true),
             'description'    => $this->faker->paragraph(20)
         ];
     }

@@ -20,8 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('img')->nullable();
             $table->integer('pages', 5)->autoIncrement(false);
             $table->date('published_at');
-            $table->text('description');
-            $table->rememberToken();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
