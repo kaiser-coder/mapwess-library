@@ -16,7 +16,9 @@ class CreateBooksTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('title', 50);
-            $table->integer('authors_id');
+            $table->string('author');
+            $table->string('img')->nullable();
+            $table->integer('pages', 5)->autoIncrement(false);
             $table->date('published_at');
             $table->text('description');
             $table->rememberToken();

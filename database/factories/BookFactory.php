@@ -23,7 +23,8 @@ class BookFactory extends Factory
     {
         return [
             'title'          => $this->faker->words(5, true),
-            'authors_id'     => $this->faker->randomElement([1, 2, 3, 4]),
+            'author'         => $this->faker->name(),
+            'pages'          => $this->faker->randomNumber(3, true),
             'published_at'   => $this->faker->date(),
             'remember_token' => $this->faker->randomNumber(5, true),
             'description'    => $this->faker->paragraph(20)
