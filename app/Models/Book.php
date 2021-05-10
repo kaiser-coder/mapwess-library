@@ -16,4 +16,9 @@ class Book extends Model
         'pages',
         'description'
     ];
+
+    public function getTitleAttribute(String $title)
+    {
+        return ucfirst($title);
+    }
 }

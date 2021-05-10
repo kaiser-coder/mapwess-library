@@ -13,6 +13,11 @@ class Books extends Controller
         return view('home', ['books' => Book::all() ]);
     }
 
+    public function view(Int $id)
+    {
+        return view('view', ['book' => Book::find($id)]);
+    }
+
     public function create() {
         return view('create');
     }

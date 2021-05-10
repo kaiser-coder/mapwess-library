@@ -5,7 +5,7 @@
 @section('content')
 
 @foreach ($books as $book)
-<div class="row mb-3">
+<div class="row">
     <div class="offset-1 col-10 card">
         <div class="card-body">
             <h4><a href="/view/{{ $book->id }}">{{ $book->title }}</a></h4>

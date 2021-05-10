@@ -24,5 +24,6 @@ Route::get('/tests', function () {
 
 Route::get('/home', [Books::class, 'home']);
 Route::get('/create', [Books::class, 'create']);
+Route::get('/view/{id}', [Books::class, 'view']);
 Route::get('/edit/{id}', [Books::class, 'edit']);
 Route::post('/store', [Books::class, 'store']);

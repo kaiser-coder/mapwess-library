@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ URL::asset('bootstrap.min.css') }}">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
         <div class="row mb-3">
             <nav class="col-12 navbar navbar-expand-lg navbar-dark bg-dark">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
