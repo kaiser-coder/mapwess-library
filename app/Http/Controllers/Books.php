@@ -8,16 +8,16 @@ use Illuminate\Http\Request;
 class Books extends Controller
 {
     public function home() {
-        return view('home', ['books' => Book::all() ]);
+        return view('books/home', ['books' => Book::all() ]);
     }
 
     public function view(Int $id)
     {
-        return view('view', ['book' => Book::find($id)]);
+        return view('books/view', ['book' => Book::find($id)]);
     }
 
     public function create() {
-        return view('create');
+        return view('books/create');
     }
 
     public function store(Request $request) {
@@ -38,7 +38,7 @@ class Books extends Controller
 
     public function edit($id)
     {
-        return view('edit', ['book' => Book::find($id)]);
+        return view('books/edit', ['book' => Book::find($id)]);
     }
 
     public function update(Request $request, Int $id)
