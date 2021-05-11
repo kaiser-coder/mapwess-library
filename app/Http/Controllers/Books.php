@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class Books extends Controller
 {
+    public function __construct() {
+        $this->middleware(['customAuth']);
+    }
+
     public function home() {
         return view('books/home', ['books' => Book::all() ]);
     }
