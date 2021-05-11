@@ -14,7 +14,7 @@ class Users extends Controller
     public function logout()
     {
         session()->flush();
-        return view('users/login');
+        return redirect('/login');
     }
 
     public function auth(Request $request) {
@@ -30,7 +30,7 @@ class Users extends Controller
         // dd($user);
 
         if (null !== $user) {
-            session(['user_id' => $user->id]);
+            session(['user_id' => $user->id, 'user_mail' => $user->email]);
             return redirect('/profile')->with('user', $user);
         } else {
             return redirect('/login')->with('error_message', 'This user doesn\'t exist');

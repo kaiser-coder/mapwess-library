@@ -23,7 +23,7 @@
                         </div>
                     </div>
 
-                    <small class="text-muted">Publié le {{ $book->published_at }} - Auteur: {{ $book->author }}</small>
+                    <small class="text-muted">Publié le {{ $book->published_at }} - Auteur: {{ $book->author }} - added by  User ID {{ $book->user_id }}</small>
 
                     <p style="font-size: 13px">
                         {{ $book->description }}

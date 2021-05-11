@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="jumbotron">
-                    <h4>@yield('title')</h4>
+                    <h4>@yield('title') - connected as {{ session('user_mail') }}</h4>
                     <p style="font-size: 12px;">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, accusantium vero? Consectetur ea sapiente officia cupiditate, cumque iure provident ipsa nesciunt et, voluptates esse tempore explicabo tenetur inventore asperiores facere!
                     </p>

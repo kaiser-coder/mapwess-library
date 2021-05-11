@@ -34,7 +34,7 @@ class Books extends Controller
             'img'            => 'nullable'
         ]);
 
-        $data = array_merge($request->all(), ['user_id'=> 1]);
+        $data = array_merge($request->all(), ['user_id'=> session('user_id')]);
         // dd($data);
         Book::create($data);
         return redirect('/home');
@@ -60,21 +60,22 @@ class Books extends Controller
         $book = Book::where('id', $request->book_id)
         ->first();
 
-        // dd($request->all());
-
-        if ($book->user_id == 1) {
+        if ($book->user_id == session('user_id')) {
             Book::where('id', $id)
                 ->update($validated_data);
+
+            return redirect('/view'.'/'. $book->id);
+        } else {
+            return redirect('/home');
         }
 
-        return $this->view($id);
     }
 
     public function delete(Int $id)
     {
         $book = Book::find($id)->first();
 
-        if($book->user_id == 1) {
+        if($book->user_id == session('user_id')) {
             Book::find($id)->delete();
         }
 
