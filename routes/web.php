@@ -16,11 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('users/login');
-});
-
-Route::get('/tests', function () {
-    return 'Welcome into the Library';
+    return view('welcome');
 });
 
 // Book Routes

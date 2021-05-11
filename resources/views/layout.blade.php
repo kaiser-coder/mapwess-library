@@ -1,7 +1,3 @@
-<?php
-    if(session('user_id')) {
-;?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,9 +53,3 @@
 
 </body>
 </html>
-
-<?php
-    } else {
-        Redirect::to('/');
-    }
-;?>

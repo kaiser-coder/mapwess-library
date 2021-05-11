@@ -21,7 +21,7 @@ class Books extends Controller
     }
 
     public function store(Request $request) {
-        $validatedData =  $request->validate([
+        $request->validate([
             'title'          => 'required',
             'author'         => 'required',
             'pages'          => 'required|integer',
@@ -30,7 +30,9 @@ class Books extends Controller
             'img'            => 'nullable'
         ]);
 
-        Book::create($request->all());
+        $data = array_merge($request->all(), ['user_id'=> 1]);
+        // dd($data);
+        Book::create($data);
         return redirect('/home');
     }
 

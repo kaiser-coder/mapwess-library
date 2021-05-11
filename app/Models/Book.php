@@ -14,7 +14,8 @@ class Book extends Model
         'published_at',
         'img',
         'pages',
-        'description'
+        'description',
+        'user_id',
     ];
 
     public function getTitleAttribute(String $title)
