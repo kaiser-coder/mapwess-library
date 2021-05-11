@@ -27,7 +27,6 @@ class UserFactory extends Factory
             'phone' => $this->faker->phoneNumber(),
             'email' => 'kaiser@gmail.com',
             'password' => '12345678', // password
-            'remember_token' => Str::random(10),
         ];
     }
 

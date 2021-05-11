@@ -44,7 +44,7 @@ class Users extends Controller
 
     public function save(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required',
             'phone' => 'required',
             'email' => 'required',
@@ -54,13 +54,13 @@ class Users extends Controller
 
         $user = User::where('name', $request->name)
         ->where('email', $request->email)
-        ->count();
+        ->first();
 
-        if ($user == 1) {
-            return view('users/register');
+        if (!null == $user) {
+            return redirect('users/register')->with('error_message', 'This user already exist');
         } else {
             User::create($request->all());
-            return view('users/login');
+            return redirect('/login');
         }
     }
 
@@ -75,7 +75,7 @@ class Users extends Controller
 
     public function update(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required',
             'phone' => 'required',
             'email' => 'required',

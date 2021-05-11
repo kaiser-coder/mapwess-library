@@ -10,6 +10,18 @@
 </head>
 <body>
     <div class="container-fluid">
+        @if (Session::get('error_message'))
+            <div class="row">
+                <div class="offset-4 col-4 mt-3">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Warning</strong> {{ Session::get('error_message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="row">
             <div class="offset-4 col-4 card p-0 mt-5">
                 <form action="/save" method="POST">
@@ -24,7 +36,7 @@
                         <div class="row form-group p-1">
                             <div class="col-12">
                                 <label for="">Name</label>
-                                <input type="text" name="name" id="" class="form-control form-control-sm">
+                                <input type="text" name="name" id="" class="form-control form-control-sm" value="{{ old('name') }}">
                                 @error('name')
                                     <span class="text-danger" style="font-size: 13px;">{{ $message }}</span>
                                 @enderror
@@ -33,7 +45,7 @@
                         <div class="row form-group p-1">
                             <div class="col-12">
                                 <label for="">Phone number</label>
-                                <input type="text" name="phone" id="" class="form-control form-control-sm">
+                                <input type="text" name="phone" id="" class="form-control form-control-sm" value="{{ old('phone') }}">
                                 @error('phone')
                                     <span class="text-danger" style="font-size: 13px;">{{ $message }}</span>
                                 @enderror
@@ -42,7 +54,7 @@
                         <div class="row form-group p-1">
                             <div class="col-12">
                                 <label for="">Email</label>
-                                <input type="email" name="email" id="" class="form-control form-control-sm">
+                                <input type="email" name="email" id="" class="form-control form-control-sm" value="{{ old('email') }}">
                                 @error('email')
                                     <span class="text-danger" style="font-size: 13px;">{{ $message }}</span>
                                 @enderror
