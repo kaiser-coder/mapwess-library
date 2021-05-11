@@ -18,8 +18,8 @@ class Users extends Controller
     }
 
     public function auth(Request $request) {
-        $validatedData = $request->validate([
-            'email' => 'required',
+        $request->validate([
+            'email' => 'required|email',
             'password' => 'required|min:8',
         ]);
 
@@ -29,11 +29,11 @@ class Users extends Controller
 
         // dd($user);
 
-        if ($user) {
+        if (null !== $user) {
             session(['user_id' => $user->id]);
             return redirect('/profile')->with('user', $user);
         } else {
-            return view('users/login');
+            return redirect('/login')->with('error_message', 'This user doesn\'t exist');
         }
     }
 
