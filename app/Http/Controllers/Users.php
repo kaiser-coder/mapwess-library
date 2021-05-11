@@ -57,7 +57,7 @@ class Users extends Controller
         ->first();
 
         if (!null == $user) {
-            return redirect('users/register')->with('error_message', 'This user already exist');
+            return redirect('/register')->with('error_message', 'This user already exist');
         } else {
             User::create($request->all());
             return redirect('/login');
@@ -91,6 +91,6 @@ class Users extends Controller
             'password' => $request->new_password
         ]);
 
-        return view('users/profile', ['user' => User::find(session('user_id'))]);
+        return redirect('/profile')->with('user', User::find(session('user_id')));
     }
 }
