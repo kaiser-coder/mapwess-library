@@ -70,7 +70,7 @@ class Books extends Controller
     {
         $book = Book::find($id)->first();
 
-        if($book->user_id == session('user_id')) {
+        if($book->user_id == 1) {
             Book::find($id)->delete();
         }
 
