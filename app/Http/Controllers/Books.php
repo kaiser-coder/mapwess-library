@@ -43,7 +43,7 @@ class Books extends Controller
 
     public function update(Request $request, Int $id)
     {
-        $validatedData =  $request->validate([
+        $validated_data = $request->validate([
             'title'          => 'required',
             'author'         => 'required',
             'pages'          => 'required|integer',
@@ -56,11 +56,11 @@ class Books extends Controller
         $book = Book::where('id', $request->book_id)
         ->first();
 
-        // dd($book);
+        // dd($request->all());
 
-        if ($book->user_id == session('user_id')) {
+        if ($book->user_id == 1) {
             Book::where('id', $id)
-                ->update($validatedData);
+                ->update($validated_data);
         }
 
         return $this->view($id);
